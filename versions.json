@@ -6,6 +6,7 @@
   "directory": "",
   "expire internal cache": "1 hour",
   "force extensions": true,
+  "ip": "127.0.0.1",
   "log level": "log",
   "max age": "30 days",
   "origin servers": [],

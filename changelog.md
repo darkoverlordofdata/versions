@@ -1,3 +1,6 @@
+### 0.2.2
+- Add ip param to listen method (for OpenShift)
+
 ### 0.2.1
 - Don't reply events from our pub/sub channel when we join it.
 - Emit ready after the data has been synced

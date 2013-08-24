@@ -199,11 +199,13 @@ Versions.prototype.layer = function layer(name, options) {
  * only be called once you are done with all your modifications.
  *
  * @param {Number} port Optional port number, if you didn't set in a config file
+ * @param {String} ip Optional local ip, if you didn't set in a config file
  * @param {Function} callback Callback for when the server has started
  * @api public
  */
-Versions.prototype.listen = function listen(port, callback) {
+Versions.prototype.listen = function listen(port, ip, callback) {
   if (port) this.set('port', port);
+  if (ip) this.set('ip', ip);
   if (callback) this.once('listening', callback);
 
   // Initialize the server configuration.
@@ -267,7 +269,7 @@ Versions.prototype.listen = function listen(port, callback) {
     this.server = require('http').createServer(this.app);
   }
 
-  this.server.listen(this.get('port'), function listening(err) {
+  this.server.listen(this.get('port'), this.get('ip'), function listening(err) {
     this.emit('listening', err);
   }.bind(this));
 
